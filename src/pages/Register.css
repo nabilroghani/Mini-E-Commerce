@@ -1,0 +1,90 @@
+/* Container */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6610f2, #0d6efd);
+  padding: 20px;
+}
+
+/* Form box */
+.register-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Heading */
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #6610f2;
+}
+
+/* Labels */
+.register-form label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Inputs */
+.register-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: #6610f2;
+  box-shadow: 0 0 5px rgba(102, 16, 242, 0.3);
+}
+
+/* Button */
+.register-form button {
+  padding: 12px;
+  background: #6610f2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-form button:hover {
+  background: #520dc2;
+}
+
+/* Login link */
+.login-text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-text a {
+  color: #6610f2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .register-form {
+    padding: 20px;
+  }
+}

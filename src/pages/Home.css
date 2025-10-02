@@ -1,0 +1,29 @@
+.hero {
+  position: relative; /* text ko image ke upar rakhne ke liye */
+  width: 100%;
+  height: 100vh; /* full screen hero */
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: rgb(63, 56, 56);
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+}
