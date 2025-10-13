@@ -8,26 +8,25 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
 import { Routes, Route } from "react-router-dom";
-import Level from "./contextApi/Level";
+import ProductDetails from "./pages/ProductDetails";
 
 export default function App() {
   return (
     <>
-      <Level>
-        <Routes>
-          <Route element={<Header />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route element={<Private />}>
-              <Route path="/product" element={<Product />} />
-              <Route path="/cart" element={<Cart />} />
-            </Route>
+      <Routes>
+        <Route element={<Header />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+          <Route element={<Private />}>
+            <Route path="/product" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
-        </Routes>
-      </Level>
+        </Route>
+      </Routes>
     </>
   );
 }
