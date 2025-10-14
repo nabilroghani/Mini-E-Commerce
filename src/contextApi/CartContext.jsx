@@ -40,7 +40,7 @@ export function CartProvider({ children }) {
       case "Remove":
         return state.filter((item) => item.id !== action.payload);
 
-      case "Clear":
+      case "CLEAR_CART":
         return [];
 
       default:

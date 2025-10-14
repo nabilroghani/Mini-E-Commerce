@@ -1,150 +1,129 @@
-/* Overall Header Styling */
+/* === General Navbar Styling === */
 .navbar {
-  background: #ffffff;
-  color: #333;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  justify-content: space-between;
+  background: #111;
+  color: #fff;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
 }
 
-/* Logo */
 .logo {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #0d6efd;
   cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #f9b208;
+}
+
+/* === Navigation Links === */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.5rem;
   transition: 0.3s ease;
 }
 
-.logo:hover {
-  color: #084298;
-  transform: scale(1.05);
-}
-
-/* Nav Links */
-.nav-links {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 0;
+.nav-links li {
+  position: relative;
 }
 
 .link {
+  color: #fff;
   text-decoration: none;
-  color: #333;
   font-weight: 500;
-  position: relative;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.link:hover {
-  color: #0d6efd;
+.link:hover,
+.link.active {
+  color: #f9b208;
 }
 
-/* Underline Animation on Hover */
-.link::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #0d6efd;
-  transition: width 0.3s ease;
-}
-
-.link:hover::after {
-  width: 100%;
-}
-
-/* Cart Icon */
+/* === Cart Icon === */
 .cart-icon {
   position: relative;
-  color: #333;
-  font-size: 1.2rem;
+  color: #fff;
   text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 1.2rem;
 }
 
-.cart-icon:hover {
-  color: #0d6efd;
-  transform: scale(1.1);
-}
-
-/* Cart Count */
 .cart-icon::after {
   content: attr(data-count);
   position: absolute;
   top: -8px;
   right: -10px;
-  background: #ff3d3d;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-/* Logout & Login Button */
-.logout-btn {
-  background: #ff4b5c;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.logout-btn:hover {
-  background: #d90429;
-}
-
-.nav-links i {
-  color: #0d6efd;
+  background: #f9b208;
+  color: #111;
+  font-size: 0.7rem;
   font-weight: 600;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 18px;
 }
 
-/* Responsive Navbar */
+/* === Buttons === */
+.logout-btn,
+.login-btn {
+  background: #f9b208;
+  color: #111;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.logout-btn:hover,
+.login-btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* === Mobile Menu === */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 65px;
     right: -100%;
-    background: white;
     flex-direction: column;
-    align-items: start;
+    background: #111;
     width: 100%;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
   }
 
   .nav-links.active {
     right: 0;
   }
 
-  .link {
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
+  .cart-icon {
+    margin: 1rem 0;
   }
 
-  .menu-toggle {
-    display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
+  .logout-btn {
+    margin-top: 1rem;
   }
-}
-
-/* Hide hamburger by default */
-.menu-toggle {
-  display: none;
-  color: #0d6efd;
 }

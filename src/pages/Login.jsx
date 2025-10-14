@@ -11,27 +11,36 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem("users")) || [];
-    const loggedInUser = user.find(
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedInUser = users.find(
       (u) => u.email === input.email && u.password === input.password
     );
+
     if (loggedInUser) {
+      // ✅ Save current user
       localStorage.setItem("currentUser", JSON.stringify(loggedInUser));
+
+      // ✅ Trigger instant Header update (no refresh needed)
+      window.dispatchEvent(new Event("authChange"));
+
       navigate("/");
     } else {
-      alert("Invalid cradential");
+      alert("Invalid credentials");
     }
-    console.log(input);
+
+    // Reset input fields
     setInput({
       email: "",
       password: "",
     });
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInput((prev) => {
-      return { ...prev, [name]: value };
-    });
+    setInput((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -47,6 +56,7 @@ export default function Login() {
           placeholder="Enter Email"
           value={input.email}
           onChange={handleChange}
+          required
         />
 
         <label htmlFor="password">Password</label>
@@ -57,9 +67,11 @@ export default function Login() {
           placeholder="Enter Password"
           value={input.password}
           onChange={handleChange}
+          required
         />
 
         <button type="submit">Login</button>
+
         <p className="signup-text">
           Don’t have an account? <NavLink to="/register">Sign up</NavLink>
         </p>

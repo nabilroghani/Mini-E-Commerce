@@ -1,7 +1,7 @@
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Header from "./components/Header";
+import Layout from "./Layout";
 import Product from "./pages/Products";
 import Private from "./ProtectedRoute/Private";
 import Login from "./pages/Login";
@@ -9,12 +9,11 @@ import Cart from "./pages/Cart";
 import Register from "./pages/Register";
 import { Routes, Route } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails";
-
 export default function App() {
   return (
     <>
       <Routes>
-        <Route element={<Header />}>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
