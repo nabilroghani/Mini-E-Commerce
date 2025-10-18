@@ -1,0 +1,145 @@
+/* NotFound.css - Dark theme with gold accent, responsive */
+
+/* reset-ish */
+.notfound-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0b0b0b 0%, #111 100%);
+  color: #e8e8e8;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Card */
+.notfound-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 36px;
+  border-radius: 14px;
+  max-width: 920px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(2, 2, 2, 0.6);
+}
+
+/* Big 404 */
+.notfound-code {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #f9b208; /* gold accent */
+  letter-spacing: 6px;
+  line-height: 1;
+  min-width: 160px;
+  text-align: center;
+}
+
+/* Body */
+.notfound-body h1 {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.notfound-body p {
+  margin: 0 0 20px 0;
+  color: #cfcfcf;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Actions */
+.notfound-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.primary-btn,
+.ghost-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+/* Primary (gold) */
+.primary-btn {
+  background: #f9b208;
+  color: #111;
+  box-shadow: 0 6px 18px rgba(249, 178, 8, 0.15);
+}
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(249, 178, 8, 0.18);
+}
+
+/* Ghost */
+.ghost-btn {
+  background: transparent;
+  color: #e8e8e8;
+  border: 1px solid rgba(232, 232, 232, 0.08);
+}
+.ghost-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer note */
+.notfound-footer {
+  margin-top: 26px;
+  text-align: center;
+  color: #9d9d9d;
+  font-size: 0.9rem;
+}
+.notfound-footer a {
+  color: #f9b208;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .notfound-card {
+    gap: 20px;
+    padding: 28px;
+  }
+
+  .notfound-code {
+    font-size: 4.5rem;
+    min-width: 120px;
+  }
+
+  .notfound-body h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .notfound-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px;
+  }
+  .notfound-code {
+    font-size: 3.6rem;
+  }
+  .notfound-body p {
+    max-width: 100%;
+  }
+  .notfound-actions {
+    justify-content: center;
+  }
+}

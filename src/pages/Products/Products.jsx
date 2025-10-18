@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import ProductContext from "../contextApi/ProductContext";
-import CartContext from "../contextApi/CartContext";
+import ProductContext from "../../contextApi/ProductContext";
+import CartContext from "../../contextApi/CartContext";
 import "./Products.css";
 
 export default function Product() {
@@ -20,7 +20,11 @@ export default function Product() {
         {products.map((p) => (
           <div key={p.id} className="product-card">
             <Link to={`/ProductDetails/${p.id}`} className="img-link">
-              <img src={p.image} alt={p.title} className="product-img" />
+              <img
+                src={p.thumbnail || p.images?.[0]}
+                alt={p.title}
+                className="product-img"
+              />
             </Link>
 
             <div className="product-info">

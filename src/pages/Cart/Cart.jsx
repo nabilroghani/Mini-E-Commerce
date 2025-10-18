@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CartContext from "../contextApi/CartContext";
+import CartContext from "../../contextApi/CartContext";
 import "./Cart.css";
 
 export default function Cart() {
@@ -21,7 +21,7 @@ export default function Cart() {
       <div className="cart-items">
         {state.map((item) => (
           <div key={item.id} className="cart-item">
-            <img src={item.image} alt={item.title} className="cart-img" />
+            <img src={item.images} alt={item.title} className="cart-img" />
 
             <div className="cart-info">
               <h3>{item.title}</h3>
@@ -60,12 +60,7 @@ export default function Cart() {
 
       <div className="cart-summary">
         <h3>Total: ${total.toFixed(2)}</h3>
-        <button
-          className="clear-cart"
-          onClick={() => dispatch({ type: "Clear" })}
-        >
-          Clear Cart
-        </button>
+        <button className="clear-cart">Check Out</button>
       </div>
     </div>
   );

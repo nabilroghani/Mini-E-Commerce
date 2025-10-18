@@ -10,8 +10,9 @@ export default function ProductProvider({ children }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("https://fakestoreapi.com/products");
-        setProducts(res.data);
+        const res = await axios.get("https://dummyjson.com/products");
+        setProducts(res.data.products);
+        console.log(res.data);
       } catch {
         setError(true);
       } finally {

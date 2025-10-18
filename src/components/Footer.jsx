@@ -3,7 +3,9 @@ export default function Footer() {
   return (
     <div className="footer">
       <div>
-        <h1 className="logo">Fasion Fusion</h1>
+        <h1 className="logo">
+          Fasion <span>Fusion</span>
+        </h1>
         <h4>Contact</h4>
         <p>Address: Peshawar</p>
         <p>Phone: 03041237882</p>

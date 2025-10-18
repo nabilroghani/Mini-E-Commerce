@@ -41,7 +41,7 @@ export default function Header() {
   return (
     <header className="navbar">
       <div className="logo" onClick={() => navigate("/")}>
-        Mini<span>Shop</span>
+        Fasion<span> Fusion</span>
       </div>
 
       <div className="menu-toggle" onClick={() => setMenuOpen((p) => !p)}>
