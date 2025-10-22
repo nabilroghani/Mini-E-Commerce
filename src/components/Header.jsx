@@ -11,7 +11,6 @@ export default function Header() {
     JSON.parse(localStorage.getItem("currentUser"))
   );
 
-  // 🔁 Update header whenever login/logout happens
   useEffect(() => {
     const handleAuthChange = () => {
       setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
@@ -33,7 +32,7 @@ export default function Header() {
       localStorage.removeItem(`cart_${user.email}`);
     }
     localStorage.removeItem("currentUser");
-    window.dispatchEvent(new Event("authChange")); // 👈 trigger update instantly
+    window.dispatchEvent(new Event("authChange"));
     setCurrentUser(null);
     navigate("/login");
   };
@@ -41,7 +40,7 @@ export default function Header() {
   return (
     <header className="navbar">
       <div className="logo" onClick={() => navigate("/")}>
-        Fasion<span> Fusion</span>
+        Fashion<span> Fusion</span>
       </div>
 
       <div className="menu-toggle" onClick={() => setMenuOpen((p) => !p)}>
