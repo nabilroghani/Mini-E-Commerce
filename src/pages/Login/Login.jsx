@@ -7,6 +7,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [message, setMessage] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -17,18 +18,15 @@ export default function Login() {
     );
 
     if (loggedInUser) {
-      // ✅ Save current user
       localStorage.setItem("currentUser", JSON.stringify(loggedInUser));
 
-      // ✅ Trigger instant Header update (no refresh needed)
       window.dispatchEvent(new Event("authChange"));
 
       navigate("/");
     } else {
-      alert("Invalid credentials");
+      setMessage("Invalid credentials");
     }
 
-    // Reset input fields
     setInput({
       email: "",
       password: "",
@@ -69,7 +67,7 @@ export default function Login() {
           onChange={handleChange}
           required
         />
-
+        <p style={{ color: "red", textAlign: "center" }}>{message}</p>
         <button type="submit">Login</button>
 
         <p className="signup-text">
