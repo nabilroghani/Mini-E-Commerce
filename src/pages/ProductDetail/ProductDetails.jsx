@@ -1,45 +1,25 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import { useContext } from "react";
 import "./ProductDetails.css";
 import CartContext from "../../contextApi/CartContext";
+import ProductContext from "../../contextApi/ProductContext";
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { products } = useContext(ProductContext);
   const { dispatch } = useContext(CartContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(
-          `https://fakestoreapi.com/products/${id}`
-        );
-        setProduct(response.data);
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProduct();
-  }, [id]);
+  const product = products.find((p) => p.id === Number(id));
 
-  if (loading) return <h2 className="loading">Loading product details...</h2>;
   if (!product) return <h2 className="error">Product not found.</h2>;
 
   const handleAddToCart = () => {
     const user = localStorage.getItem("currentUser");
-
-    // 🔒 if user not logged in — redirect to login page
     if (!user) {
       navigate("/login");
       return;
     }
-
-    // 🛒 if user logged in — add product to cart
     dispatch({ type: "Add", payload: product });
     alert("✅ Product added to cart!");
   };
@@ -47,13 +27,16 @@ export default function ProductDetails() {
   return (
     <div className="details-container">
       <div className="image-section">
-        <img src={product.image} alt={product.title} />
+        <img
+          src={product.image || product.thumbnail || product.img}
+          alt={product.title || product.name}
+        />
       </div>
 
       <div className="info-section">
-        <h1 className="product-title">{product.title}</h1>
-        <p className="category">Category: {product.category}</p>
-        <p className="description">{product.description}</p>
+        <h1 className="product-title">{product.title || product.name}</h1>
+        <p className="category">Category: {product.category || "N/A"}</p>
+        <p className="description">{product.description || "No description"}</p>
         <h3 className="price">${product.price.toFixed(2)}</h3>
 
         <button className="add-to-cart" onClick={handleAddToCart}>
