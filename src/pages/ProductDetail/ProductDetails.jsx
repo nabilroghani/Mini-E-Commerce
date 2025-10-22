@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import "./ProductDetails.css";
@@ -9,6 +9,7 @@ export default function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { dispatch } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -30,7 +31,17 @@ export default function ProductDetails() {
   if (!product) return <h2 className="error">Product not found.</h2>;
 
   const handleAddToCart = () => {
+    const user = localStorage.getItem("currentUser");
+
+    // 🔒 if user not logged in — redirect to login page
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    // 🛒 if user logged in — add product to cart
     dispatch({ type: "Add", payload: product });
+    alert("✅ Product added to cart!");
   };
 
   return (

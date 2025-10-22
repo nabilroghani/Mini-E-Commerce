@@ -22,7 +22,7 @@ export default function Cart() {
         {state.map((item) => (
           <div key={item.id} className="cart-item">
             <img
-              src={item.images || item.img || item.thumbnail}
+              src={item.image || item.img || item.thumbnail}
               alt={item.title || item.name}
               className="cart-img"
             />
