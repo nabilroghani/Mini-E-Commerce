@@ -1,23 +1,25 @@
 import "./Footer.css";
+
 export default function Footer() {
   return (
-    <div className="footer">
-      <div>
+    <footer className="footer">
+      <div className="footer-section">
         <h1 className="logo">
-          Fasion <span>Fusion</span>
+          Fashion <span>Fusion</span>
         </h1>
         <h4>Contact</h4>
         <p>Address: Peshawar</p>
-        <p>Phone: 03041237882</p>
+        <p>Phone: 0304 123 7882</p>
         <p>Hours: 10:00 - 18:00, Mon - Sat</p>
       </div>
-      <div>
+
+      <div className="footer-section">
         <h2>About</h2>
         <p>
           <a href="#">Delivery Information</a>
         </p>
         <p>
-          <a href="#">Privacy Poicy</a>
+          <a href="#">Privacy Policy</a>
         </p>
         <p>
           <a href="#">Terms & Conditions</a>
@@ -26,34 +28,40 @@ export default function Footer() {
           <a href="#">Contact Us</a>
         </p>
       </div>
-      <div>
+
+      <div className="footer-section">
         <h2>My Account</h2>
         <p>
           <a href="#">Sign In</a>
         </p>
         <p>
-          <a href="">View Cart</a>
+          <a href="#">View Cart</a>
         </p>
         <p>
-          <a href="">My Wishlist</a>
+          <a href="#">My Wishlist</a>
         </p>
         <p>
-          <a href="">Track My Order</a>
+          <a href="#">Track My Order</a>
         </p>
         <p>
-          <a href="">Help</a>
+          <a href="#">Help</a>
         </p>
       </div>
-      <div>
+
+      <div className="footer-section media">
         <h2>Install App</h2>
         <p>From App Store or Google Play</p>
         <div className="media-logo">
-          <img src="./img/pay/app.jpg" alt="" />
-          <img src="./img/pay/play.jpg" alt="" />
+          <img src="./img/pay/app.jpg" alt="App Store" />
+          <img src="./img/pay/play.jpg" alt="Google Play" />
         </div>
         <p>Secured Payment Gateways</p>
-        <img src="./img/pay/pay.png" alt="" />
+        <img
+          src="./img/pay/pay.png"
+          alt="Payment Methods"
+          className="payment-img"
+        />
       </div>
-    </div>
+    </footer>
   );
 }

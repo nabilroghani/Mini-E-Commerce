@@ -21,10 +21,14 @@ export default function Cart() {
       <div className="cart-items">
         {state.map((item) => (
           <div key={item.id} className="cart-item">
-            <img src={item.images} alt={item.title} className="cart-img" />
+            <img
+              src={item.images || item.img || item.thumbnail}
+              alt={item.title || item.name}
+              className="cart-img"
+            />
 
             <div className="cart-info">
-              <h3>{item.title}</h3>
+              <h3>{item.title || item.name}</h3>
               <p>${item.price.toFixed(2)}</p>
 
               <div className="quantity-controls">
@@ -36,7 +40,9 @@ export default function Cart() {
                 >
                   −
                 </button>
+
                 <span className="qty-value">{item.quantity}</span>
+
                 <button
                   onClick={() =>
                     dispatch({ type: "Increase", payload: item.id })
